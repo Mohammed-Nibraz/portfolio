@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibraz - Content Operations Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Hero Section with Photo */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto 30px;
+            overflow: hidden;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero .tagline {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        
+        .hero .expertise {
+            font-size: 1.1em;
+            opacity: 0.85;
+            margin-top: 20px;
+        }
+        
+        /* Section Styling */
+        .section {
+            background: white;
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        /* Project Cards with Images */
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 15px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .project-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .project-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .tool-image-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background: white;
+            padding: 20px;
+        }
+        
+        .tool-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tool-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .image-caption {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+        
+        .project-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .impact-list {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f7 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .impact-list strong {
+            color: #2c5282;
+            font-size: 1.1em;
+        }
+        
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-icon {
+            font-size: 1.5em;
+        }
+        
+        /* Competency Grid */
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .competency-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .competency-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            background: white;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        footer h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .skills-grid, .competency-grid, .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-image {
+                height: 300px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section with Photo -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="profile-photo">
+                    <img src="images/nibrazc.jpg" alt="Mohammed Nibraz">
+                </div>
+                <h1>Mohammed Nibraz</h1>
+                <p class="tagline">Content Operations Specialist | Quality Assurance Expert | AI Innovator</p>
+                <p class="expertise">Transforming Content Operations Through Automation & Generative AI</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">AI-Powered Tools</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Team Deployment</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">3,172</div>
+                <div class="stat-label">Hours Saved Annually</div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1em; line-height: 1.8;">Results-driven Operations Specialist with 2+ years of expertise in Content Operations, Quality Assurance, and Process Optimization within media workflows. Proficient in workflow coordination, metadata management, and implementing automation solutions that drive efficiency and accuracy. Proven track record in team training, productivity tracking, and cross-functional collaboration to ensure seamless content lifecycle management and operational excellence.</p>
+            <p style="margin-top: 20px; font-size: 1.1em;"><strong>Core Expertise:</strong> Content Operations | Quality Assurance | Process Optimization | Team Leadership | Workflow Automation | Generative AI Integration</p>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2>Professional Experience Highlights</h2>
+            
+            <h3>🎯 Content Operations & Quality Assurance</h3>
+            <ul>
+                <li><strong>End-to-End Workflow Management:</strong> Coordinated complete content lifecycle from ingestion to publication, ensuring quality standards and timely delivery</li>
+                <li><strong>Quality Control Leadership:</strong> Established and maintained QA frameworks for media assets, reducing defect rates and improving content accuracy</li>
+                <li><strong>Launch Readiness Coordination:</strong> Managed pre-launch quality checks and readiness assessments for high-value content releases</li>
+                <li><strong>Metadata & Asset Management:</strong> Ensured data integrity across content management systems and media asset management platforms</li>
+            </ul>
+
+            <h3>👥 Team Leadership & Training</h3>
+            <ul>
+                <li><strong>Team Mentorship:</strong> Trained and mentored team members on CMS platforms, quality control workflows, and operational best practices</li>
+                <li><strong>Productivity Optimization:</strong> Implemented tracking systems and performance metrics that improved team efficiency</li>
+                <li><strong>Cross-Functional Collaboration:</strong> Partnered with content operations, vendor management, and technical teams to streamline processes</li>
+                <li><strong>Task Allocation & Audits:</strong> Managed workload distribution and conducted regular quality audits to maintain operational excellence</li>
+            </ul>
+
+            <h3>🚀 Process Improvement & Innovation</h3>
+            <ul>
+                <li><strong>SOP Development:</strong> Drafted and maintained standard operating procedures for content operations workflows</li>
+                <li><strong>Issue Identification & RCA:</strong> Conducted root cause analysis to identify bottlenecks and implement corrective measures</li>
+                <li><strong>Automation Implementation:</strong> Leveraged AI and automation tools to reduce manual effort and increase accuracy</li>
+                <li><strong>Stakeholder Management:</strong> Communicated effectively with vendors, partners, and internal stakeholders to align on quality standards</li>
+            </ul>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2>Key Projects & Innovations</h2>
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>
+                    <span class="project-number">1</span>
+                    AI-Powered Defect Formatter
+                </h3>
+                <span class="project-label">🤖 Generative AI • Web Development</span>
+                
+                <p><strong>Challenge:</strong> Manual formatting of quality assurance defects was time-consuming and prone to inconsistencies, slowing down the QA feedback loop.</p>
+                
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Developed an intelligent defect formatting tool that automatically structures QA findings into standardized callouts, grouping identical issues across multiple locales and generating professional defect reports.</p>
+                
+                <!-- Tool Image -->
+                <div class="tool-image-container">
+                    <div class="tool-image">
+                        <img src="images/defect-formatter.png" alt="AI-Powered Defect Formatter Tool">
+                    </div>
+                    <p class="image-caption">AI-Powered Defect Formatter Interface</p>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> Generative AI, Web Development (HTML/CSS/JavaScript), Data Processing</p>
+                
+                <div class="impact-list">
+                    <strong>📊 Impact:</strong>
+                    <ul>
+                        <li>Reduced defect formatting time by <strong>70%</strong></li>
+                        <li>Improved consistency in QA reporting across the team</li>
+                        <li>Enhanced communication clarity with content partners and vendors</li>
+                        <li>Enabled faster turnaround on quality feedback cycles</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Automatic detection and categorization of asset types (Video, Audio, Subtitle, Metadata)</li>
+                    <li>Smart grouping of identical issues across multiple locales</li>
+                    <li>Standardized output format for professional defect callouts</li>
+                    <li>One-click copy functionality for seamless integration into reporting tools</li>
+                </ul>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>
+                    <span class="project-number">2</span>
+                    Metadata Validator Automation Tool
+                </h3>
+                <span class="project-label">🐍 Python • Data Validation • Automation</span>
+                
+                <p><strong>Challenge:</strong> Manual metadata validation was error-prone and couldn't scale with increasing content volume, leading to quality issues and launch delays.</p>
+                
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Built a comprehensive metadata validation system that performs content-type-aware checks across multiple data points, ensuring metadata accuracy before content publication.</p>
+                
+                <!-- Tool Image -->
+                <div class="tool-image-container">
+                    <div class="tool-image">
+                        <img src="images/metadata-verifier.png" alt="Metadata Validator Tool">
+                    </div>
+                    <p class="image-caption">Metadata Validator Dashboard</p>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> Python, Data Validation Logic, Web Interface, CMS Integration</p>
+                
+                <div class="impact-list">
+                    <strong>📊 Impact:</strong>
+                    <ul>
+                        <li>Reduced metadata errors by <strong>85%</strong></li>
+                        <li>Decreased pre-launch validation time from hours to minutes</li>
+                        <li>Prevented costly post-launch corrections and content takedowns</li>
+                        <li>Improved overall content quality and compliance</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Validation Capabilities:</strong></p>
+                <ul>
+                    <li>Rating and certification compliance checks</li>
+                    <li>Genre and classification accuracy</li>
+                    <li>Release date and temporal data validation</li>
+                    <li>Original language and localization verification</li>
+                    <li>Sequence and episodic content validation</li>
+                    <li>Contributors and credits accuracy</li>
+                    <li>Content-type-specific rule enforcement</li>
+                </ul>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3>
+                    <span class="project-number">3</span>
+                    Task Mate - Productivity Tracker
+                </h3>
+                <span class="project-label">📊 Data Analytics • Dashboard Design</span>
+                
+                <p><strong>Challenge:</strong> Lack of visibility into team productivity and time allocation made it difficult to optimize workflows and identify improvement opportunities.</p>
+                
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Created an intuitive task and time tracking system that provides real-time insights into team productivity, task completion rates, and time utilization patterns.</p>
+                
+                <!-- Tool Image -->
+                <div class="tool-image-container">
+                    <div class="tool-image">
+                        <img src="images/task-mate.png" alt="Task Mate Productivity Tracker">
+                    </div>
+                    <p class="image-caption">Task Mate - Real-time Productivity Dashboard</p>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> Web Development, Data Analytics, Dashboard Design, Local Storage</p>
+                
+                <div class="impact-list">
+                    <strong>📊 Impact:</strong>
+                    <ul>
+                        <li>Increased team productivity visibility by <strong>100%</strong></li>
+                        <li>Enabled data-driven workflow optimization decisions</li>
+                        <li>Improved task allocation and workload balancing</li>
+                        <li>Provided actionable insights for process improvements</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Features:</strong></p>
+                <ul>
+                    <li>Real-time task tracking and time logging</li>
+                    <li>Productivity metrics and performance dashboards</li>
+                    <li>Historical data analysis (10-day rolling window)</li>
+                    <li>User-friendly interface with modern card-based design</li>
+                    <li>Export capabilities for reporting and analysis</li>
+                </ul>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <h3>
+                    <span class="project-number">4</span>
+                    Quick Pass - Quality Central Automation
+                </h3>
+                <span class="project-label">⚡ Browser Automation • Tampermonkey Script</span>
+
+                <p><strong>Challenge:</strong> QC operators spent 1-3 minutes per title manually selecting "Pass" for multiple quality checks in Quality Central, creating a bottleneck in the content review workflow and limiting daily throughput.</p>
+
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Developed a browser automation tool using Tampermonkey that automatically passes all pending quality checks with one click, while maintaining manual control over final submission for quality assurance.</p>
+
+                <!-- Tool Image -->
+                <div class="tool-image-container">
+                    <div class="tool-image">
+                        <img src="images/quick-pass.png" alt="Quick Pass Automation Tool">
+                    </div>
+                    <p class="image-caption">Quick Pass - Real-time Automation Dashboard</p>
+                </div>
+
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> JavaScript, Tampermonkey, Browser Automation, DOM Manipulation</p>
+
+                <div class="impact-list">
+                    <strong>📊 Impact:</strong>
+                    <ul>
+                        <li>Deployed to <strong>50+ QC operators</strong> across the team</li>
+                        <li>Saves <strong>30+ hours weekly</strong> (30-90 hours monthly)</li>
+                        <li>Enables <strong>8 additional titles daily</strong> per operator</li>
+                        <li>Reduces processing time by <strong>1-3 minutes per title</strong></li>
+                        <li>Maintains <strong>100% accuracy</strong> with manual review before submission</li>
+                        <li>Expected annual savings: <strong>~3,172 hours</strong></li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                <ul>
+                    <li>One-click automation for all pending quality checks</li>
+                    <li>Real-time progress tracking with processed count and percentage</li>
+                    <li>Completion time display and performance metrics</li>
+                    <li>Cancel functionality to stop processing mid-way</li>
+                    <li>Draggable and minimizable floating control panel</li>
+                    <li>Smart detection of "Pass" options across different check types</li>
+                    <li>Does NOT auto-submit - allows manual review before final submission</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>Deployment & Adoption:</strong></p>
+                <ul>
+                    <li>Successfully deployed across 50+ QC operators</li>
+                    <li>Created installation and usage documentation</li>
+                    <li>Provided training and support for team adoption</li>
+                    <li>Achieved 100% team adoption rate</li>
+                    <li>Continuous monitoring and optimization based on user feedback</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Competencies -->
+        <div class="section">
+            <h2>Technical Competencies</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><span class="skill-icon">🤖</span> Automation & AI</h4>
+                    <ul>
+                        <li>AI-powered workflow automation</li>
+                        <li>Generative AI integration</li>
+                        <li>Custom tool development</li>
+                        <li>Process optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><span class="skill-icon">💻</span> Programming & Development</h4>
+                    <ul>
+                        <li>Python (data processing)</li>
+                        <li>SQL (data analysis)</li>
+                        <li>Web Development (HTML/CSS/JS)</li>
+                        <li>Tool and interface design</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><span class="skill-icon">🎬</span> Content Operations Tools</h4>
+                    <ul>
+                        <li>CMS and MAM platforms</li>
+                        <li>Metadata management systems</li>
+                        <li>Quality control tools</li>
+                        <li>Ticketing platforms (Quip, Airtable)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4><span class="skill-icon">🎨</span> Design & Visualization</h4>
+                    <ul>
+                        <li>Adobe Photoshop</li>
+                        <li>Figma (UI/UX design)</li>
+                        <li>Dashboard design</li>
+                        <li>Data visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <div class="section">
+            <h2>Core Competencies</h2>
+            
+            <div class="competency-grid">
+                <div class="competency-item">🔄 Workflow Coordination</div>
+                <div class="competency-item">✅ Quality Assurance</div>
+                <div class="competency-item">⚡ Process Optimization</div>
+                <div class="competency-item">👥 Team Leadership</div>
+                <div class="competency-item">🤖 Automation Solutions</div>
+                <div class="competency-item">🤝 Stakeholder Management</div>
+                <div class="competency-item">📊 Data-Driven Decisions</div>
+                <div class="competency-item">💡 Technical Innovation</div>
+            </div>
+        </div>
+
+        <!-- Professional Philosophy -->
+        <div class="section">
+            <h2>Professional Philosophy</h2>
+            <p style="font-size: 1.1em; line-height: 1.8;">I believe in combining operational expertise with technological innovation to drive efficiency and quality. My approach focuses on:</p>
+            <ul style="margin-top: 20px; font-size: 1.05em;">
+                <li><strong>🎯 Automation First:</strong> Identifying repetitive tasks and building intelligent solutions that free up human capacity for strategic work</li>
+                <li><strong>✨ Quality by Design:</strong> Embedding quality checks and validations into workflows rather than treating them as afterthoughts</li>
+                <li><strong>📈 Continuous Improvement:</strong> Using data and feedback to iteratively enhance processes and outcomes</li>
+                <li><strong>💪 Team Empowerment:</strong> Creating tools and documentation that enable team members to work more effectively and confidently</li>
+            </ul>
+        </div>
+
+        <!-- What I Bring -->
+        <div class="section">
+            <h2>What I Bring to Content Operations</h2>
+            <ul style="font-size: 1.05em; line-height: 2;">
+                <li>✅ <strong>Proven track record</strong> in managing end-to-end content workflows at scale</li>
+                <li>✅ <strong>Technical innovation</strong> through AI-powered automation and custom tool development</li>
+                <li>✅ <strong>Quality focus</strong> with systematic approaches to QA and process optimization</li>
+                <li>✅ <strong>Leadership experience</strong> in training, mentoring, and driving team performance</li>
+                <li>✅ <strong>Cross-functional collaboration</strong> skills for seamless stakeholder management</li>
+                <li>✅ <strong>Data-driven mindset</strong> for continuous improvement and operational excellence</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <h3>Let's Connect</h3>
+            <p style="font-size: 1.1em; line-height: 1.8;">I'm passionate about leveraging technology and AI to transform content operations and drive measurable business impact. Whether it's optimizing workflows, implementing automation solutions, or building high-performing teams, I bring a unique blend of operational expertise and technical innovation.</p>
+            <p style="margin-top: 20px; font-size: 1.2em;"><strong>Ready to discuss how I can contribute to your content operations goals.
+	</footer>
+	</div>
+	</body>
+</html>
