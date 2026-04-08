@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibraz - Content Operations Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .project-card {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .project-card h3 {
+            margin-top: 0;
+        }
+        
+        .impact-list {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .competency-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .skills-grid, .competency-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nibraz</h1>
+            <p>Content Operations Specialist | Quality Assurance | Process Optimization | Generative AI</p>
+        </header>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Results-driven Operations Specialist with 2+ years of expertise in Content Operations, Quality Assurance, and Process Optimization within media workflows. Proficient in workflow coordination, metadata management, and implementing automation solutions that drive efficiency and accuracy. Proven track record in team training, productivity tracking, and cross-functional collaboration to ensure seamless content lifecycle management and operational excellence.</p>
+            <p style="margin-top: 15px;"><strong>Core Expertise:</strong> Content Operations | Quality Assurance | Process Optimization | Team Leadership | Workflow Automation | Generative AI Integration</p>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience Highlights</h2>
+            
+            <h3>Content Operations & Quality Assurance</h3>
+            <ul>
+                <li><strong>End-to-End Workflow Management:</strong> Coordinated complete content lifecycle from ingestion to publication, ensuring quality standards and timely delivery</li>
+                <li><strong>Quality Control Leadership:</strong> Established and maintained QA frameworks for media assets, reducing defect rates and improving content accuracy</li>
+                <li><strong>Launch Readiness Coordination:</strong> Managed pre-launch quality checks and readiness assessments for high-value content releases</li>
+                <li><strong>Metadata & Asset Management:</strong> Ensured data integrity across content management systems and media asset management platforms</li>
+            </ul>
+
+            <h3>Team Leadership & Training</h3>
+            <ul>
+                <li><strong>Team Mentorship:</strong> Trained and mentored team members on CMS platforms, quality control workflows, and operational best practices</li>
+                <li><strong>Productivity Optimization:</strong> Implemented tracking systems and performance metrics that improved team efficiency</li>
+                <li><strong>Cross-Functional Collaboration:</strong> Partnered with content operations, vendor management, and technical teams to streamline processes</li>
+                <li><strong>Task Allocation & Audits:</strong> Managed workload distribution and conducted regular quality audits to maintain operational excellence</li>
+            </ul>
+
+            <h3>Process Improvement & Innovation</h3>
+            <ul>
+                <li><strong>SOP Development:</strong> Drafted and maintained standard operating procedures for content operations workflows</li>
+                <li><strong>Issue Identification & RCA:</strong> Conducted root cause analysis to identify bottlenecks and implement corrective measures</li>
+                <li><strong>Automation Implementation:</strong> Leveraged AI and automation tools to reduce manual effort and increase accuracy</li>
+                <li><strong>Stakeholder Management:</strong> Communicated effectively with vendors, partners, and internal stakeholders to align on quality standards</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Key Projects & Innovations</h2>
+
+            <div class="project-card">
+                <h3>1. AI-Powered Defect Formatter</h3>
+                <p><strong>Challenge:</strong> Manual formatting of quality assurance defects was time-consuming and prone to inconsistencies, slowing down the QA feedback loop.</p>
+                
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Developed an intelligent defect formatting tool that automatically structures QA findings into standardized callouts, grouping identical issues across multiple locales and generating professional defect reports.</p>
+                
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> Generative AI, Web Development (HTML/CSS/JavaScript), Data Processing</p>
+                
+                <div class="impact-list">
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Reduced defect formatting time by 70%</li>
+                        <li>Improved consistency in QA reporting across the team</li>
+                        <li>Enhanced communication clarity with content partners and vendors</li>
+                        <li>Enabled faster turnaround on quality feedback cycles</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Automatic detection and categorization of asset types (Video, Audio, Subtitle, Metadata)</li>
+                    <li>Smart grouping of identical issues across multiple locales</li>
+                    <li>Standardized output format for professional defect callouts</li>
+                    <li>One-click copy functionality for seamless integration into reporting tools</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>2. Metadata Validator Automation Tool</h3>
+                <p><strong>Challenge:</strong> Manual metadata validation was error-prone and couldn't scale with increasing content volume, leading to quality issues and launch delays.</p>
+                
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Built a comprehensive metadata validation system that performs content-type-aware checks across multiple data points, ensuring metadata accuracy before content publication.</p>
+                
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> Python, Data Validation Logic, Web Interface, CMS Integration</p>
+                
+                <div class="impact-list">
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Reduced metadata errors by 85%</li>
+                        <li>Decreased pre-launch validation time from hours to minutes</li>
+                        <li>Prevented costly post-launch corrections and content takedowns</li>
+                        <li>Improved overall content quality and compliance</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Validation Capabilities:</strong></p>
+                <ul>
+                    <li>Rating and certification compliance checks</li>
+                    <li>Genre and classification accuracy</li>
+                    <li>Release date and temporal data validation</li>
+                    <li>Original language and localization verification</li>
+                    <li>Sequence and episodic content validation</li>
+                    <li>Contributors and credits accuracy</li>
+                    <li>Content-type-specific rule enforcement</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>3. Task Mate - Productivity Tracker</h3>
+                <p><strong>Challenge:</strong> Lack of visibility into team productivity and time allocation made it difficult to optimize workflows and identify improvement opportunities.</p>
+                
+                <p style="margin-top: 15px;"><strong>Solution:</strong> Created an intuitive task and time tracking system that provides real-time insights into team productivity, task completion rates, and time utilization patterns.</p>
+                
+                <p style="margin-top: 15px;"><strong>Technologies:</strong> Web Development, Data Analytics, Dashboard Design, Local Storage</p>
+                
+                <div class="impact-list">
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Increased team productivity visibility by 100%</li>
+                        <li>Enabled data-driven workflow optimization decisions</li>
+                        <li>Improved task allocation and workload balancing</li>
+                        <li>Provided actionable insights for process improvements</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>Features:</strong></p>
+                <ul>
+                    <li>Real-time task tracking and time logging</li>
+                    <li>Productivity metrics and performance dashboards</li>
+                    <li>Historical data analysis (10-day rolling window)</li>
+                    <li>User-friendly interface with modern card-based design</li>
+                    <li>Export capabilities for reporting and analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Competencies</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Automation & AI</h4>
+                    <ul>
+                        <li>AI-powered workflow automation</li>
+                        <li>Generative AI integration</li>
+                        <li>Custom tool development</li>
+                        <li>Process optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Programming & Development</h4>
+                    <ul>
+                        <li>Python (data processing)</li>
+                        <li>SQL (data analysis)</li>
+                        <li>Web Development (HTML/CSS/JS)</li>
+                        <li>Tool and interface design</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Content Operations Tools</h4>
+                    <ul>
+                        <li>CMS and MAM platforms</li>
+                        <li>Metadata management systems</li>
+                        <li>Quality control tools</li>
+                        <li>Ticketing platforms (Quip, Airtable)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Design & Visualization</h4>
+                    <ul>
+                        <li>Adobe Photoshop</li>
+                        <li>Figma (UI/UX design)</li>
+                        <li>Dashboard design</li>
+                        <li>Data visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Core Competencies</h2>
+            
+            <div class="competency-grid">
+                <div class="competency-item">Workflow Coordination</div>
+                <div class="competency-item">Quality Assurance</div>
+                <div class="competency-item">Process Optimization</div>
+                <div class="competency-item">Team Leadership</div>
+                <div class="competency-item">Automation Solutions</div>
+                <div class="competency-item">Stakeholder Management</div>
+                <div class="competency-item">Data-Driven Decisions</div>
+                <div class="competency-item">Technical Innovation</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Philosophy</h2>
+            <p>I believe in combining operational expertise with technological innovation to drive efficiency and quality. My approach focuses on:</p>
+            <ul style="margin-top: 15px;">
+                <li><strong>Automation First:</strong> Identifying repetitive tasks and building intelligent solutions that free up human capacity for strategic work</li>
+                <li><strong>Quality by Design:</strong> Embedding quality checks and validations into workflows rather than treating them as afterthoughts</li>
+                <li><strong>Continuous Improvement:</strong> Using data and feedback to iteratively enhance processes and outcomes</li>
+                <li><strong>Team Empowerment:</strong> Creating tools and documentation that enable team members to work more effectively and confidently</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>What I Bring to Content Operations</h2>
+            <ul>
+                <li>✓ <strong>Proven track record</strong> in managing end-to-end content workflows at scale</li>
+                <li>✓ <strong>Technical innovation</strong> through AI-powered automation and custom tool development</li>
+                <li>✓ <strong>Quality focus</strong> with systematic approaches to QA and process optimization</li>
+                <li>✓ <strong>Leadership experience</strong> in training, mentoring, and driving team performance</li>
+                <li>✓ <strong>Cross-functional collaboration</strong> skills for seamless stakeholder management</li>
+                <li>✓ <strong>Data-driven mindset</strong> for continuous improvement and operational excellence</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>I'm passionate about leveraging technology and AI to transform content operations and drive measurable business impact.</p>
+            <p style="margin-top: 10px;"><strong>Let's connect to discuss how I can contribute to your content operations goals.</strong></p>
+        </footer>
+    </div>
+</body>
+</html>
